@@ -121,7 +121,7 @@ eksekusi dengan CURL:
                 output :
                 [{"id":1,"nama":"andara","alamat":"jaksel"},{"id":2,"nama":"sukiman","alamat":"bekasi"},{"id":3,"nama":"makaela","alamat":"bekasi"},{"id":4,"nama":"abdurrahman","alamat":"tangerang"}]
 
-
+---
 
     2. Rute POST `/data` untuk menambahkan data baru ke tabel.
 
