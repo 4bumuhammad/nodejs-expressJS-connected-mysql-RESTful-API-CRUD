@@ -131,56 +131,68 @@ eksekusi dengan CURL:
                 {"message":"Data berhasil ditambahkan"}
 
 
+---
+
+    3. Rute GET `/data/:id` untuk melihat data berdasarkan ID.
+
+            ❯ curl -X GET http://localhost:3000/data/1
+
+                output :
+                {"id":1,"nama":"andara","alamat":"jaksel"}
+
+                Rute PUT `/data/:id` untuk mengedit data berdasarkan ID.
+
+---
 
 
-3. Rute GET `/data/:id` untuk melihat data berdasarkan ID.
-❯ curl -X GET http://localhost:3000/data/1
+    4. Rute PUT `/data/:id` untuk mengedit data berdasarkan ID.
 
-output :
-{"id":1,"nama":"andara","alamat":"jaksel"}
+            ❯ curl -X PUT -H "Content-Type: application/json" -d '{"nama": "stevani", "alamat": "vancouver"}' http://localhost:3000/data/5
 
-Rute PUT `/data/:id` untuk mengedit data berdasarkan ID.
-
+                output :
+                {"message":"Data berhasil diupdate"}
 
 
-
-4. Rute PUT `/data/:id` untuk mengedit data berdasarkan ID.
-❯ curl -X PUT -H "Content-Type: application/json" -d '{"nama": "stevani", "alamat": "vancouver"}' http://localhost:3000/data/5
-
-output :
-{"message":"Data berhasil diupdate"}
+---
 
 
+    5. Rute DELETE `/data/:id` untuk menghapus data berdasarkan ID.
 
-5. Rute DELETE `/data/:id` untuk menghapus data berdasarkan ID.
-❯ curl -X DELETE http://localhost:3000/data/5
+            ❯ curl -X DELETE http://localhost:3000/data/5
 
-output :
-{"message":"Data berhasil dihapus"}
-
-
-
-6. Rute GET `/data/filter` untuk mencari data berdasarkan filter menggunakan query string.
-❯ curl -X GET 'http://localhost:3000/data/filter?filterField=nama&filterValue=makaela'
-
-output :
-[{"id":3,"nama":"makaela","alamat":"bekasi"}]%  
+                output :
+                {"message":"Data berhasil dihapus"}
 
 
+---
+
+    6. Rute GET `/data/filter` untuk mencari data berdasarkan filter menggunakan query string.
+
+        ❯ curl -X GET 'http://localhost:3000/data/filter?filterField=nama&filterValue=makaela'
+
+            output :
+            [{"id":3,"nama":"makaela","alamat":"bekasi"}]%  
 
 
-# check data
-❯ mysql -h 127.0.0.1 -P 3309 -u root -p --ssl-mode=DISABLED
-Enter password: password
-mysql> use ujimysqlkudb;
-mysql> select * from users;
-+------+-------------+-----------+
-| id   | nama        | alamat    |
-+------+-------------+-----------+
-|    1 | andara      | jaksel    |
-|    2 | sukiman     | bekasi    |
-|    3 | makaela     | bekasi    |
-|    4 | abdurrahman | tangerang |
-+------+-------------+-----------+
-4 rows in set (0.00 sec)
+---
+
+### check data
+
+    ❯ mysql -h 127.0.0.1 -P 3309 -u root -p --ssl-mode=DISABLED
+
+        Enter password: password
+
+        mysql> use ujimysqlkudb;
+
+        mysql> select * from users;
+
+        +------+-------------+-----------+
+        | id   | nama        | alamat    |
+        +------+-------------+-----------+
+        |    1 | andara      | jaksel    |
+        |    2 | sukiman     | bekasi    |
+        |    3 | makaela     | bekasi    |
+        |    4 | abdurrahman | tangerang |
+        +------+-------------+-----------+
+        4 rows in set (0.00 sec)
 
